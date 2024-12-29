@@ -29,7 +29,6 @@ body {
 }
 
 nav {
-  background-color: black;
   height: 10vh;
   padding-right: 3%;
 }
@@ -43,7 +42,7 @@ nav {
 }
 
 #logo_img {
-  height: 90%;
+  height: 75%;
   width: 60%;
 }
 
@@ -75,6 +74,10 @@ nav {
 }
 
 @media (max-width: 1024px) {
+
+  body {
+    overflow-x: hidden;
+  }
   /* Flex container settings */
   .df {
     flex-wrap: wrap; /* Ensure items wrap for smaller screens */
@@ -149,41 +152,84 @@ nav {
   }
 }
 
+@media (max-width: 480px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  nav {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #logo_img {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  #nav_links {
+    gap: 8px;
+  }
+
+  .navLinks {
+    font-size: 0.8rem;
+    padding: 8px 0;
+  }
+}
+
 /* Main Section */
 .main {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  /* background-color: black; */
+  align-items: center;
   color: white;
   width: 100%;
+  height: 80vh;
 }
 
-/* About Section */
 .about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
   max-width: 1200px;
+  padding: 20px;
+}
+
+.bg {
+  flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 20px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.bg img {
+  max-width: 100%;
+  height: auto;
+  width: 25rem;
+  height: 22rem;
+  object-fit: cover;
 }
 
 .intro {
+  flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0px 20px;
 }
 
 .text-wrapper {
-  flex: 1;
-  text-align: left;
+  width: 100%;
 }
 
 .text-wrapper h1 {
-  font-family: "merriweather", sans-serif;
+  font-family: "Merriweather", sans-serif;
   font-size: 3rem;
   font-weight: 400;
   line-height: 1.2;
@@ -197,23 +243,9 @@ nav {
 }
 
 .animated_text {
-  font-family: "merriweather", serif;
+  font-family: "Merriweather", serif;
   font-size: 1.5rem;
   color: inherit;
-}
-
-/* Background Section */
-.bg {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.bg img {
-  max-width: 90%;
-  height: 22rem;
-  width: 25rem;
-  object-fit: cover;
 }
 
 .social-icons {
@@ -230,6 +262,10 @@ nav {
 
 .social-icons img:hover {
   transform: scale(1.1);
+}
+
+.border {
+  width: 100%;
 }
 
 .border button {
@@ -258,14 +294,17 @@ nav {
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .about {
-    padding-left: 20px;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bg {
+    margin-bottom: 20px;
   }
 
   .intro {
-    flex-direction: row;
-    gap: 10px;
-    padding: 10px;
+    align-items: center;
+    text-align: center;
   }
 
   .text-wrapper h1 {
@@ -276,24 +315,26 @@ nav {
     font-size: 1.2rem;
   }
 
+  .social-icons {
+    justify-content: center;
+  }
+
   .bg img {
     width: 200px;
   }
 }
 
 @media (max-width: 768px) {
+  .about {
+    padding: 10px;
+  }
+
   .intro {
-    flex-direction: row;
-    align-items: center;
+    gap: 15px;
   }
 
   .text-wrapper h1 {
-    font-size: 1.5 rem;
-    text-align: center;
-  }
-
-  .animated_text_wrapper {
-    text-align: center;
+    font-size: 2rem;
   }
 
   .animated_text {
@@ -308,12 +349,15 @@ nav {
     width: 90%;
   }
 
-  .border {
-    text-align: center;
+  .border button {
+    width: 180px;
+    height: 50px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
+
   .text-wrapper h1 {
     font-size: 1.8rem;
   }
@@ -327,8 +371,8 @@ nav {
   }
 
   .border button {
-    width: 180px;
-    height: 50px;
+    width: 160px;
+    height: 45px;
     font-size: 0.9rem;
   }
 }
@@ -345,8 +389,8 @@ nav {
 
 .about-me-container {
   max-width: 1200px; /* Restrict width */
-  width: 90%;
-  padding: 20px;
+  width: 80%;
+  padding: 40px;
   background-color: #111; /* Dark gray box background */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
