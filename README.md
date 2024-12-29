@@ -47,6 +47,12 @@ Feel free to reach out for collaborations, questions, or just to connect!
 
 ---
 
+## Credits
+All logos used on this website are sourced from [Flaticon](https://www.flaticon.com).  
+Full credit goes to the respective creators for their amazing work.
+
+---
+
 ## 📜 License
 
 This project is open-source and available under the [MIT License](LICENSE).
