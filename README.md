@@ -48,7 +48,8 @@ Feel free to reach out for collaborations, questions, or just to connect!
 ---
 
 ## Credits
-All logos used on this website are sourced from [Flaticon](https://www.flaticon.com).  
+All logos used on this website are sourced from [Flaticon](https://www.flaticon.com).
+All icons used on this website are sourced from [Font Awesome](https://www.fontawesome.com).
 Full credit goes to the respective creators for their amazing work.
 
 ---
