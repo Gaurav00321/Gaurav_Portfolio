@@ -27,7 +27,7 @@ Welcome to my portfolio! This project showcases my skills, projects, and achieve
 
 ## 🚀 How to View
 
-1. **Online**: Visit [My Portfolio](https://gaurav00321.github.io/portfolio) to view it live.
+1. **Online**: Visit [My Portfolio](https://gaurav00321.github.io/Gaurav_Portfolio/) to view it live.
 2. **Local Setup**:
    - Clone the repository:
      ```bash
