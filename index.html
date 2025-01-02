@@ -552,8 +552,9 @@
             </header>
             <div class="contact-info">
               <a
-                href="mailto:gauravupadhyay20112003@gmail.com"
-                class="contact-tag email"
+                href="mailto:gauravupadhyay.career@gmail.com"
+                class="contact-tag email" 
+                id="responsive_email" 
               >
                 <i class="fas fa-envelope"></i>
                 gauravupadhyay.career@gmail.com
@@ -754,6 +755,13 @@
               });
           });
       });
+
+      const email = document.getElementById("responsive_email")
+
+      email.addEventListener("click", ()=>{
+      
+        console.log("click");
+      })
     </script>
   </body>
 </html>

@@ -153,7 +153,6 @@ nav {
     padding: 10px;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
   }
 
   #logo_img {
@@ -349,11 +348,6 @@ nav {
 }
 
 @media (max-width: 480px) {
-
-  .main {
-    overflow: hidden;
-  }
-
   .text-wrapper h1 {
     font-size: 1.2rem;
   }
@@ -377,7 +371,6 @@ nav {
 .about-me {
   background: #000; /* Black background */
   color: #fff; /* White text */
-  padding: 50px 20px; /* Spacing for the section */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -386,7 +379,7 @@ nav {
 .about-me-container {
   max-width: 1200px; /* Restrict width */
   width: 80%;
-  padding: 80px;
+  padding: 40px;
   background-color: #111; /* Dark gray box background */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
@@ -413,7 +406,7 @@ nav {
   left: 50%;
   bottom: -10px;
   transform: translateX(-50%);
-} 
+}
 
 /* About Me Content */
 .about-me-content p {
@@ -439,7 +432,6 @@ nav {
 }
 
 @media (max-width: 480px) {
-
   .about-me-content p {
     font-size: 0.8rem; /* Adjust text size for smaller screens */
     text-align: left;
@@ -1072,7 +1064,7 @@ header p {
 
 /* Certifications Section */
 .certifications-section {
-  padding: 50px 0;
+  padding: 30px 0;
   background-color: #000; /* Dark background to match theme */
   color: white; /* Text color */
 }
@@ -1226,9 +1218,12 @@ header p {
 
 /* Fix Overflow for Smaller Screens */
 @media (max-width: 480px) {
+  .certifications-section {
+    padding: 30px 30px;
+  }
+
   .certifications-content {
-    width: 100%; /* Utilize full width */
-    padding: 10px; /* Reduce padding for smaller screens */
+    padding: 15px; /* Reduce padding for smaller screens */
     overflow: hidden; /* Ensure no overflow */
   }
 
@@ -1272,7 +1267,6 @@ header p {
 
   .row {
     flex-direction: column; /* Stack rows vertically */
-    padding: 0 10px; /* Add padding to prevent overflow */
     margin: 0; /* Remove unnecessary margin */
   }
 
@@ -1289,10 +1283,34 @@ header p {
 }
 
 /* Contact Left Styles */
+/* Contact Section General Styles */
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+  padding: 0 15px; /* Add padding for better spacing */
+  margin: 0 auto; /* Center the container */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap; /* Wrap elements to prevent overflow */
+  margin: 0 -15px; /* Account for inner padding */
+}
+
+.contact-left,
+.contact-right {
+  flex: 1 1 auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 15px; /* Prevent content from spilling */
+}
+
 .contact-left {
   flex: 1 1 35%;
   max-width: 35%;
   padding: 20px;
+  width: 100%;
 }
 
 .contact-left header {
@@ -1305,8 +1323,13 @@ header p {
   color: var(--primary-color);
 }
 
-/* Contact Section Tags */
+@media (max-width: 480px) {
+  .contact-left header h1 {
+    font-size: 2rem;
+  }
+}
 
+/* Contact Section Tags */
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -1343,8 +1366,6 @@ header p {
 
 .contact-tag.email {
   border: 2px solid #3498db; /* Specific border for email */
-  text-overflow: hidden;
-  text-wrap: wrap;
 }
 
 .contact-tag.phone {
@@ -1435,6 +1456,17 @@ header p {
   }
 }
 
+@media (max-width: 480px) {
+  .contact-tag.email {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+}
+
+.contact-right {
+  width: 50%;
+}
+
 .contact-right form {
   flex-basis: 50%;
   width: 100%;
@@ -1443,7 +1475,7 @@ header p {
 .form-group {
   position: relative;
   margin: 15px 0;
-  width: 250%;
+  width: 94%;
 }
 
 /* General styles for the label */
@@ -1502,9 +1534,7 @@ header p {
 /* Targeting the specific "Your Message" group */
 .message-group textarea:is(:focus, :valid) ~ label {
   font-size: 0.95rem;
-  transform: translateY(
-    -100%
-  ); /* Move label higher for "Your Message" textarea */
+  transform: translateY(-100%); /* Move label higher for "Your Message" textarea */
 }
 
 form .btn2 {
@@ -1546,13 +1576,25 @@ form .btn2:hover {
 }
 
 @media (max-width: 480px) {
+  .contact-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+
   .form-group input,
   .form-group textarea {
-    width: 70%;
+    width: 100%;
     font-size: 0.7rem;
     border-radius: 6px;
   }
+
+  #contact-form {
+    width: fit-content;
+  }
 }
+
 
 /* Footer Styling */
 .footer {
@@ -1560,7 +1602,7 @@ form .btn2:hover {
   color: white; /* Text color */
   padding: 40px 20px;
   text-align: center;
-  overflow: hidden;
+  width: 100%;
 }
 
 .footer-content {
@@ -1615,7 +1657,7 @@ form .btn2:hover {
   }
 
   .footer-content {
-    max-width: 100%; /* Use full width on small screens */
+    width: 100%; /* Use full width on small screens */
     padding: 0; /* Remove extra padding */
   }
 
@@ -1640,7 +1682,8 @@ form .btn2:hover {
 
 @media (max-width: 480px) {
   .footer {
-    padding: 20px 10px; /* Compact padding for very small screens */
+    width: 100%;
+    padding: 30px 0px;
   }
 
   .footer-content p {
