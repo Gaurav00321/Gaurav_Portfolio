@@ -74,10 +74,6 @@ nav {
 }
 
 @media (max-width: 1024px) {
-
-  body {
-    overflow-x: hidden;
-  }
   /* Flex container settings */
   .df {
     flex-wrap: wrap; /* Ensure items wrap for smaller screens */
@@ -153,15 +149,11 @@ nav {
 }
 
 @media (max-width: 480px) {
-
-  body {
-    overflow-x: hidden;
-  }
-
   nav {
     padding: 10px;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
 
   #logo_img {
@@ -358,8 +350,12 @@ nav {
 
 @media (max-width: 480px) {
 
+  .main {
+    overflow: hidden;
+  }
+
   .text-wrapper h1 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
   .animated_text {
@@ -390,7 +386,7 @@ nav {
 .about-me-container {
   max-width: 1200px; /* Restrict width */
   width: 80%;
-  padding: 40px;
+  padding: 80px;
   background-color: #111; /* Dark gray box background */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
@@ -417,7 +413,7 @@ nav {
   left: 50%;
   bottom: -10px;
   transform: translateX(-50%);
-}
+} 
 
 /* About Me Content */
 .about-me-content p {
@@ -439,6 +435,23 @@ nav {
   }
   .about-me-header h2 {
     font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .about-me-content p {
+    font-size: 0.8rem; /* Adjust text size for smaller screens */
+    text-align: left;
+  }
+  .about-me-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .about-me-container {
+    width: 80%;
+    padding: 40px;
+    border-radius: 8px;
   }
 }
 
@@ -753,7 +766,7 @@ a {
 
 .report-card p {
   margin: 10px 0;
-  font-size: 1.1em;
+  font-size: 1.1 em;
   color: #e0e0e0;
 }
 
@@ -761,6 +774,7 @@ a {
   font-weight: 600;
   color: #00adb5;
   text-decoration: none;
+  text-overflow: hidden;
 }
 
 .report-link a:hover {
@@ -774,6 +788,18 @@ a {
     font-size: 1rem; /* Adjust font size for better readability */
     text-decoration: none; /* Maintain the text decoration */
     padding: 5px; /* Padding for better spacing */
+    display: block; /* Ensure links are block elements */
+    text-align: center; /* Center-align on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .report-link a {
+    font-weight: 4500; /* Slightly reduced weight for readability */
+    color: #00adb5; /* Keep the color consistent */
+    font-size: 0.8rem; /* Adjust font size for better readability */
+    text-decoration: none; /* Maintain the text decoration */
+    padding: 4px; /* Padding for better spacing */
     display: block; /* Ensure links are block elements */
     text-align: center; /* Center-align on small screens */
   }
@@ -1052,7 +1078,7 @@ header p {
 }
 
 .certifications-content {
-  width: 90%;
+  width: 80%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
@@ -1098,6 +1124,7 @@ header p {
   font-size: 40px;
   color: rgb(24, 164, 219); /* Icon color */
   margin-right: 20px;
+  position: relative;
 }
 
 .certification-item .cert-details {
@@ -1153,6 +1180,114 @@ header p {
   gap: 25px;
 }
 
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .certifications-content {
+    width: 95%;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .certifications-content header h2 {
+    font-size: 1.8em;
+  }
+
+  .certifications-content header p {
+    font-size: 1em;
+  }
+
+  .certifications-list ul {
+    padding: 0;
+  }
+
+  .certification-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .certification-item .cert-icon {
+    font-size: 30px;
+    margin-right: 0;
+    margin-bottom: 10px; /* Add spacing between icon and details */
+  }
+
+  .certification-item .cert-details {
+    text-align: center; /* Center-align text */
+  }
+
+  .certification-item .cert-link {
+    font-size: 1em;
+  }
+
+  .certification-item .cert-credential {
+    font-size: 0.9em;
+  }
+}
+
+/* Fix Overflow for Smaller Screens */
+@media (max-width: 480px) {
+  .certifications-content {
+    width: 100%; /* Utilize full width */
+    padding: 10px; /* Reduce padding for smaller screens */
+    overflow: hidden; /* Ensure no overflow */
+  }
+
+  .certifications-content header h2 {
+    font-size: 1.5em; /* Adjust heading size */
+    word-wrap: break-word; /* Handle long words or titles */
+  }
+
+  .certifications-content header p {
+    font-size: 0.9em; /* Slightly smaller text */
+    word-wrap: break-word;
+  }
+
+  .certification-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align text to start */
+    padding: 10px 0; /* Adjust padding */
+  }
+
+  .certification-item .cert-icon {
+    font-size: 25px; /* Reduce icon size */
+    margin-bottom: 10px; /* Add spacing */
+    margin-right: 0; /* Remove right margin */
+  }
+
+  .certification-item .cert-details {
+    text-align: left; /* Align text to the left */
+    overflow-wrap: break-word; /* Handle text wrapping */
+  }
+
+  .certification-item .cert-link {
+    font-size: 0.9em; /* Adjust font size */
+    overflow-wrap: break-word; /* Prevent link overflow */
+    word-wrap: break-word; /* Handle long URLs */
+  }
+
+  .certification-item .cert-credential {
+    font-size: 0.85em; /* Slightly smaller font size */
+    word-wrap: break-word; /* Prevent overflow of long text */
+  }
+
+  .row {
+    flex-direction: column; /* Stack rows vertically */
+    padding: 0 10px; /* Add padding to prevent overflow */
+    margin: 0; /* Remove unnecessary margin */
+  }
+
+  body {
+    margin: 0; /* Ensure no body margin that causes overflow */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+
+  .container {
+    max-width: 100%; /* Ensure container fits screen width */
+    padding: 0 10px; /* Add responsive padding */
+    box-sizing: border-box; /* Include padding in width calculations */
+  }
+}
+
 /* Contact Left Styles */
 .contact-left {
   flex: 1 1 35%;
@@ -1171,6 +1306,7 @@ header p {
 }
 
 /* Contact Section Tags */
+
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -1207,6 +1343,8 @@ header p {
 
 .contact-tag.email {
   border: 2px solid #3498db; /* Specific border for email */
+  text-overflow: hidden;
+  text-wrap: wrap;
 }
 
 .contact-tag.phone {
@@ -1422,26 +1560,32 @@ form .btn2:hover {
   color: white; /* Text color */
   padding: 40px 20px;
   text-align: center;
+  overflow: hidden;
 }
 
 .footer-content {
   max-width: 800px;
   margin: 0 auto;
+  padding: 0 10px; /* Add padding for smaller screens */
 }
 
 .footer-content p {
   font-size: 1em;
   margin-bottom: 10px;
+  line-height: 1.5; /* Increase line-height for better readability */
 }
 
 .social-links {
   margin: 20px 0;
+  display: flex;
+  justify-content: center; /* Center align icons */
+  flex-wrap: wrap; /* Wrap icons if they don't fit */
 }
 
 .social-icon {
   font-size: 1.8em;
   color: white;
-  margin: 0 10px;
+  margin: 10px; /* Add margin for spacing between icons */
   text-decoration: none;
 }
 
@@ -1452,6 +1596,7 @@ form .btn2:hover {
 .footer-policy {
   font-size: 1em;
   color: #bbb; /* Lighter text for policy links */
+  margin-top: 15px;
 }
 
 .footer-link {
@@ -1461,4 +1606,53 @@ form .btn2:hover {
 
 .footer-link:hover {
   color: rgb(24, 164, 219); /* Blue color for hover on policy links */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .footer-content {
+    max-width: 100%; /* Use full width on small screens */
+    padding: 0; /* Remove extra padding */
+  }
+
+  .footer-content p {
+    font-size: 0.9em; /* Slightly smaller text for smaller screens */
+  }
+
+  .social-links {
+    margin: 15px 0; /* Reduce spacing */
+    flex-wrap: wrap; /* Ensure icons wrap on small screens */
+  }
+
+  .social-icon {
+    font-size: 1.5em; /* Reduce icon size */
+    margin: 5px; /* Adjust spacing between icons */
+  }
+
+  .footer-policy {
+    font-size: 0.9em; /* Reduce font size for policies */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px 10px; /* Compact padding for very small screens */
+  }
+
+  .footer-content p {
+    font-size: 0.85em; /* Slightly smaller font for better fit */
+  }
+
+  .social-icon {
+    font-size: 1.2em; /* Further reduce icon size */
+    margin: 3px; /* Compact margin */
+  }
+
+  .footer-policy {
+    font-size: 0.8em; /* Smaller font size for policies */
+  }
 }
