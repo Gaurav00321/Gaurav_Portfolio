@@ -433,19 +433,22 @@ nav {
 
 @media (max-width: 480px) {
   .about-me-content p {
-    font-size: 0.8rem; /* Adjust text size for smaller screens */
+    font-size: 1.1em; /* Adjust text size for smaller screens */
     text-align: left;
   }
+
   .about-me-header h2 {
     font-size: 1.4rem;
   }
 
   .about-me-container {
-    width: 80%;
-    padding: 40px;
+    width: 90%;
+    padding: 20px;
     border-radius: 8px;
   }
 }
+
+/* skill section */
 
 .skills-section {
   padding: 50px 10%;
@@ -533,6 +536,42 @@ nav {
   }
 }
 
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 30px 5%; /* Reduced padding for smaller screens */
+  }
+
+  .skills-section h2 {
+    font-size: 1.8em; /* Smaller font size for headers */
+    margin-bottom: 20px; /* Reduced margin */
+    letter-spacing: 1px; /* Adjusted spacing for readability */
+  }
+
+  .skills-container {
+    gap: 20px; /* Reduced gap between skill rows */
+  }
+
+  .skill-row {
+    gap: 15px; /* Smaller gap between individual skills */
+  }
+
+  .skill-box {
+    width: 100px; /* Compact card width */
+    height: 130px; /* Reduced card height */
+    padding: 15px; /* Compact padding */
+  }
+
+  .skill-box img {
+    width: 50%; /* Smaller image */
+    margin-bottom: 10px; /* Reduced margin below image */
+  }
+
+  .skill-box p {
+    font-size: 0.9em; /* Smaller text size */
+    font-weight: 500; /* Slightly lighter weight for readability */
+  }
+}
+
 /* GitHub Projects Section */
 .github-projects {
   background-color: #000; /* Black background */
@@ -562,10 +601,10 @@ nav {
   height: 50px;
 }
 
-.github-header h2 {
+.github-header h1 {
   font-family: "Poppins", sans-serif;
   font-size: 2.5em;
-  font-weight: 700;
+  font-weight: 750;
   color: rgb(24, 164, 219); /* Sky blue color */
   margin: 0;
 }
@@ -631,7 +670,6 @@ nav {
   line-height: 1.6;
   color: #ccc;
   text-align: justify;
-  margin-bottom: 15px;
 }
 
 .project-link {
@@ -669,6 +707,42 @@ nav {
 
   .project-content {
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .github-projects {
+    padding: 50px 20px;
+  }
+
+  .github-header img {
+    width: 60px; /* Smaller logo for very small screens */
+    height: 60px;
+  }
+
+  .github-header h1 {
+    font-size: 1.4em; /* Smaller header font size */
+  }
+
+  .github-description {
+    text-align: left;
+    padding-left: 1rem;
+    font-size: 0.9em;
+  }
+
+  .project-card {
+    width: 95%; /* Slightly reduced width for phones */
+    padding: 20px; /* Compact padding */
+  }
+
+  .project-description {
+    font-size: 0.85em; /* Smaller font size for readability */
+    margin-bottom: 8px; /* Compact margin */
+  }
+
+  .project-link {
+    font-size: 0.9em; /* Smaller button text */
+    padding: 10px 15px; /* Compact button size */
   }
 }
 
@@ -786,14 +860,41 @@ a {
 }
 
 @media (max-width: 480px) {
+  .self-study-section h2 {
+    font-size: 1.1em; /* Further reduced for very small screens */
+  }
+
+  .self-study-section .description {
+    font-size: 0.9em; /* Compact text */
+    text-align: center;
+    padding: 20px;
+  }
+
+  .concept-card {
+    width: 90px; /* Narrower cards */
+    padding: 10px; /* Compact padding */
+  }
+
+  .concept-card p {
+    font-size: 0.85em; /* Smaller font size */
+  }
+
+  .report-section h3 {
+    font-size: 1.4em; /* Further reduced font size */
+  }
+
+  .report-card {
+    width: 100%; /* Full width for smallest screens */
+    padding: 10px; /* Compact padding */
+  }
+
+  .report-card p {
+    font-size: 0.85em; /* Compact text size */
+  }
+
   .report-link a {
-    font-weight: 4500; /* Slightly reduced weight for readability */
-    color: #00adb5; /* Keep the color consistent */
-    font-size: 0.8rem; /* Adjust font size for better readability */
-    text-decoration: none; /* Maintain the text decoration */
-    padding: 4px; /* Padding for better spacing */
-    display: block; /* Ensure links are block elements */
-    text-align: center; /* Center-align on small screens */
+    font-size: 1em; /* Smaller font for links */
+    padding: 4px; /* Compact padding */
   }
 }
 
@@ -1022,7 +1123,7 @@ header p {
 
 @media (max-width: 480px) {
   .journey .content-box {
-    padding: 5px;
+    padding: 8px;
   }
 
   header h1 {
@@ -1033,10 +1134,16 @@ header p {
     font-size: 0.8em;
   }
 
+  .timeline-content h2 {
+    font-size: 1em;
+    letter-spacing: 1;
+  }
+
   .timeline-content p {
-    font-size: 0.8em; /* Further reduce font size for very small screens */
+    font-size: 0.9em; /* Further reduce font size for very small screens */
     width: 100%;
     min-width: auto;
+    padding-top: 10px;
   }
 
   .timeline-date {
@@ -1050,7 +1157,7 @@ header p {
   }
 
   .timeline::before {
-    left: 90%; /* Further adjust position for very small screens */
+    left: 95%; /* Further adjust position for very small screens */
     background-color: rgba(24, 164, 219, 0.5); /* Slightly lighter color */
   }
 
@@ -1058,7 +1165,7 @@ header p {
     width: 12px; /* Smaller circle size */
     height: 12px;
     top: 8px; /* Adjust top position */
-    left: 90%;
+    left: 95%;
   }
 }
 
@@ -1152,11 +1259,6 @@ header p {
 .fas {
   font-family: "Font Awesome 5 Free"; /* Ensure icon font is loaded */
   font-weight: 900;
-}
-
-.contact-section {
-  background: var(--background-color);
-  padding: 40px 20px;
 }
 
 .container {
@@ -1284,6 +1386,11 @@ header p {
 
 /* Contact Left Styles */
 /* Contact Section General Styles */
+
+.contact-section {
+  padding: 30px 30px;
+}
+
 .container {
   max-width: 100%;
   overflow-x: hidden;
@@ -1324,8 +1431,29 @@ header p {
 }
 
 @media (max-width: 480px) {
+  .container {
+    padding: 0 10px;
+  }
+
   .contact-left header h1 {
     font-size: 2rem;
+  }
+
+  .contact-left {
+    padding: 6px;
+  }
+
+  .contact-section {
+    padding: 20px 10px;
+  }
+
+  .contact-tag.email {
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .contact-tag {
+    padding: 10px 10px;
   }
 }
 
@@ -1456,13 +1584,6 @@ header p {
   }
 }
 
-@media (max-width: 480px) {
-  .contact-tag.email {
-    text-align: center;
-    font-size: 0.85rem;
-  }
-}
-
 .contact-right {
   width: 50%;
 }
@@ -1534,7 +1655,9 @@ header p {
 /* Targeting the specific "Your Message" group */
 .message-group textarea:is(:focus, :valid) ~ label {
   font-size: 0.95rem;
-  transform: translateY(-100%); /* Move label higher for "Your Message" textarea */
+  transform: translateY(
+    -100%
+  ); /* Move label higher for "Your Message" textarea */
 }
 
 form .btn2 {
@@ -1591,10 +1714,15 @@ form .btn2:hover {
   }
 
   #contact-form {
-    width: fit-content;
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  form .btn2 {
+    font-size: 1rem;
+    width: 150px;
   }
 }
-
 
 /* Footer Styling */
 .footer {
@@ -1688,6 +1816,7 @@ form .btn2:hover {
 
   .footer-content p {
     font-size: 0.85em; /* Slightly smaller font for better fit */
+    padding: 5px;
   }
 
   .social-icon {
