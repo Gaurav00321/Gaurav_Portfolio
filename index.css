@@ -433,7 +433,7 @@ nav {
 
 @media (max-width: 480px) {
   .about-me-content p {
-    font-size: 1.1em; /* Adjust text size for smaller screens */
+    font-size: 1em; /* Adjust text size for smaller screens */
     text-align: left;
   }
 
