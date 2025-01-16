@@ -18,17 +18,24 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
-        working-directory: ./Gaurav_Portfolio  # Change to the correct directory
+
+      - name: Print npm and Node.js versions
+        run: |
+          node -v
+          npm -v
 
       - name: Build Project
         run: |
           echo "GMAIL_API_KEY=${{ secrets.GMAIL_API_KEY }}" >> .env
           echo "GMAIL_CLIENT_ID=${{ secrets.GMAIL_CLIENT_ID }}" >> .env
           npm run build
-        working-directory: ./Gaurav_Portfolio  # Ensure this is the right directory
+
+      - name: Print build logs
+        run: |
+          cat ./dist/*
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Gaurav_Portfolio/dist  # Adjust if needed
+          publish_dir: ./dist
