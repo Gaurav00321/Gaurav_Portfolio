@@ -11,24 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Install Dependencies
-        run: npm install
-        working-directory: ./Gaurav_Portfolio  # Change to the directory where package.json is located
-
-      - name: Build Project
-        run: |
-          echo "GMAIL_API_KEY=${{ secrets.GMAIL_API_KEY }}" >> ./Gaurav_Portfolio/.env
-          echo "GMAIL_CLIENT_ID=${{ secrets.GMAIL_CLIENT_ID }}" >> ./Gaurav_Portfolio/.env
-          npm run build
-        working-directory: ./Gaurav_Portfolio  # Ensure this is the right directory
-
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Gaurav_Portfolio/dist  # Adjust if needed
+          publish_dir: ./  # Publish everything from the root directory
