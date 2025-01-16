@@ -1,0 +1,41 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Print npm and Node.js versions
+        run: |
+          node -v
+          npm -v
+
+      - name: Build Project
+        run: |
+          echo "GMAIL_API_KEY=${{ secrets.GMAIL_API_KEY }}" >> .env
+          echo "GMAIL_CLIENT_ID=${{ secrets.GMAIL_CLIENT_ID }}" >> .env
+          npm run build
+
+      - name: Print build logs
+        run: |
+          cat ./dist/*
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
