@@ -1,0 +1,12 @@
+{
+  "name": "gaurav_portfolio",
+  "version": "1.0.0",
+  "description": "Welcome to my portfolio! This project showcases my skills, projects, and achievements, providing a detailed overview of my journey as a developer. The portfolio is designed with a modern, user-friendly UI and optimized for responsiveness across all devices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
