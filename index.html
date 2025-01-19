@@ -98,6 +98,11 @@
           alt="Gaurav Upadhyay logo image"
         />
       </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <div class="df" id="nav_links">
         <a
           class="navLinks"
@@ -736,41 +741,6 @@
 
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-    <script>
-      var typed = new Typed("#element", {
-        strings: [
-          "I'm <span class='underlined'>a IMCA Student . . .</span>",
-          "I'm <span class='underlined'>a Java and C++ Software Developer.</span>",
-        ],
-        backDelay: 2000, // 2 seconds delay before backspacing
-        loop: true,
-        cursorChar: "|", // Blinking cursor character
-        typeSpeed: 90,
-        backspeed: 1,
-        loop: true,
-        smartBackspace: true,
-        onStringTyped: (arrayPos, self) => {
-          self.cursor.style.fontSize = "30px"; // Match cursor size to font size
-        },
-        showCursor: true, // Show only the cursor, not blinking text
-      });
-
-      window.onload = function () {
-        // Set the font size after the page fully loads to prevent size issues
-        document.querySelector(".typed-cursor").style.fontSize = "30px";
-      };
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const timelineItems = document.querySelectorAll(".timeline-item");
-
-        window.addEventListener("scroll", () => {
-          timelineItems.forEach((item) => {
-            if (item.getBoundingClientRect().top < window.innerHeight * 0.75) {
-              item.classList.add("show");
-            }
-          });
-        });
-      });
-    </script>
+   <script src="script.js"></script>
   </body>
 </html>

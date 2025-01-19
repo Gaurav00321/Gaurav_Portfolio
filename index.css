@@ -24,17 +24,23 @@ body {
 
 .df {
   display: flex;
-  flex-wrap: wrap; /* Ensures that flex items wrap when the container's width exceeds the viewport */
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
+/* Navbar Styling */
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 10vh;
-  padding-right: 3%;
-}
-
-#top {
-  border-bottom: 1px solid rgb(160, 160, 160);
+  padding: 0 3%;
+  background-color: rgba(0, 0, 0, 0.7); /* Transparent navbar */
+  backdrop-filter: blur(10px); /* Blur effect */
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #logo {
@@ -46,7 +52,28 @@ nav {
   width: 60%;
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Links (Default) */
 #nav_links {
+  display: flex;
   width: 50%;
   justify-content: space-between;
   align-items: center;
@@ -56,95 +83,57 @@ nav {
   color: white;
   text-decoration: none;
   position: relative;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
 }
 
-.df a::after {
+.navLinks::before {
   content: "";
-  width: 0;
-  height: 3px;
-  background-color: rgb(24, 164, 219);
   position: absolute;
-  left: 0;
-  bottom: -6px;
-  transition: 0.5s;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 100%;
+  background: rgba(24, 164, 219, 0.7);
+  z-index: -1;
+  transition: width 0.4s ease, left 0.4s ease;
 }
 
-.df a:hover::after {
+.navLinks:hover::before {
   width: 100%;
+  left: 0;
 }
 
-@media (max-width: 1024px) {
-  /* Flex container settings */
-  .df {
-    flex-wrap: wrap; /* Ensure items wrap for smaller screens */
-    justify-content: space-around; /* Adjust justify-content for better spacing on medium screens */
-  }
-
-  nav {
-    padding-right: 5%; /* Increase padding for better spacing and alignment */
-  }
-
-  #logo {
-    margin-left: 2%; /* Reduce margin for logo */
-  }
-
-  #logo_img {
-    height: 80%; /* Adjust logo height */
-    width: 50%; /* Adjust logo width */
-  }
-
-  #nav_links {
-    width: 100%; /* Full width on medium screens */
-    justify-content: space-evenly; /* Distribute space more evenly */
-    flex-direction: row; /* Stack nav links vertically */
-    margin-bottom: 1rem;
-  }
-
-  .navLinks {
-    display: block; /* Ensure links are block-level elements */
-    padding: 5px; /* Padding to improve readability */
-  }
-
-  .df a::after {
-    width: 0;
-    height: 3px;
-  }
+.navLinks:hover {
+  color: #000;
 }
 
-/* Responsive adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-  nav {
-    height: auto; /* Remove fixed height on smaller screens */
-    padding: 20px; /* Add some padding for better layout */
-  }
-
-  #top {
-    border-bottom: none; /* Remove border on smaller screens for cleaner look */
-  }
-
-  #logo {
-    margin: 0 auto; /* Center logo on smaller screens */
-  }
-
-  #logo_img {
-    height: auto;
-    width: 40%; /* Reduce logo size for better fit */
+  .hamburger {
+    display: flex; /* Show hamburger menu on small screens */
   }
 
   #nav_links {
-    width: 100%; /* Take full width on smaller screens */
-    justify-content: space-around; /* Spread out nav links */
-    text-align: center; /* Center align nav links */
+    display: none; /* Hide links by default */
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    z-index: 999;
+  }
+
+  #nav_links.active {
+    display: flex; /* Show links when active */
   }
 
   .navLinks {
-    display: block; /* Convert links to block for better spacing */
-    margin: 10px 0; /* Add some spacing between links */
-  }
-
-  .df a::after {
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 10px 0;
+    font-size: 1.2rem;
   }
 }
 
@@ -177,7 +166,7 @@ nav {
   align-items: center;
   color: white;
   width: 100%;
-  height: 90vh;
+  height: 100vh;
 }
 
 .about {
@@ -348,6 +337,11 @@ nav {
 }
 
 @media (max-width: 480px) {
+
+  .bg {
+    justify-content: space-around;
+  }
+
   .text-wrapper h1 {
     font-size: 1.2rem;
   }
