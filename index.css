@@ -41,6 +41,9 @@ nav {
   backdrop-filter: blur(10px); /* Blur effect */
   z-index: 1000;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #logo {
@@ -60,6 +63,7 @@ nav {
   width: 30px;
   height: 25px;
   cursor: pointer;
+  z-index: 1100;
 }
 
 .hamburger span {
@@ -71,12 +75,30 @@ nav {
   transition: all 0.3s ease;
 }
 
+/* Transform Hamburger Menu to 'X' */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  position: relative;
+  top: 8px;
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -8px;
+}
+
 /* Navigation Links (Default) */
 #nav_links {
   display: flex;
   width: 50%;
   justify-content: space-between;
   align-items: center;
+  transition: right 0.5s ease;
 }
 
 .navLinks {
@@ -108,20 +130,22 @@ nav {
   color: #000;
 }
 
-/* Responsive Design */
+/* Right-Slide Navigation for Small Screens */
 @media (max-width: 768px) {
   .hamburger {
     display: flex; /* Show hamburger menu on small screens */
   }
 
   #nav_links {
-    display: none; /* Hide links by default */
-    position: absolute;
-    top: 10vh;
-    left: 0;
-    width: 100%;
+    display: none;
+    position: fixed;
+    top: 100%;
+    right: -100%; /* Start hidden off-screen */
+    width: 50%; /* Slide-in width */
+    height: 100vh;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     background-color: rgba(0, 0, 0, 0.9);
     padding: 1rem 0;
     z-index: 999;
@@ -129,14 +153,43 @@ nav {
 
   #nav_links.active {
     display: flex; /* Show links when active */
+    right: 0; /* Slide in from the right */
   }
 
   .navLinks {
     margin: 10px 0;
     font-size: 1.2rem;
+    position: relative;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+
+  .navLinks:hover {
+    transform: scale(1.1); /* Slightly grow the text */
+    color: rgb(24, 164, 219); /* Change text color */
+  }
+
+  .navLinks::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: rgb(24, 164, 219);
+    border-radius: 10px;
+    transition: width 0.4s ease, left 0.4s ease;
+  }
+
+  .navLinks:hover::before {
+    width: 100%;
+    left: 0;
   }
 }
 
+/* For Smaller Devices */
 @media (max-width: 480px) {
   nav {
     padding: 10px;
@@ -337,7 +390,6 @@ nav {
 }
 
 @media (max-width: 480px) {
-
   .bg {
     justify-content: space-around;
   }
