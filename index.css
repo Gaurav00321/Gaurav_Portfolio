@@ -418,6 +418,7 @@ nav {
   background: #000; /* Black background */
   color: #fff; /* White text */
   display: flex;
+  height: 95vh;
   justify-content: center;
   align-items: center;
 }
