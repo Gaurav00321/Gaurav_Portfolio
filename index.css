@@ -69,7 +69,7 @@ nav {
 .hamburger span {
   display: block;
   width: 100%;
-  height: 4px;
+  height: 2px;
   background-color: white;
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -434,7 +434,7 @@ nav {
 
 /* About Me Header */
 .about-me-header h2 {
-  font-size: 2.5em;
+  font-size: 2.2em;
   color: rgb(24, 164, 219); /* Sky blue color */
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -456,8 +456,8 @@ nav {
 
 /* About Me Content */
 .about-me-content p {
-  font-family: "Merriweather", serif; /* Formal and professional font */
-  font-size: 1.2em;
+  font-family: "Poppins", serif; /* Formal and professional font */
+  font-size: 1.1em;
   color: #ccc; /* Light gray for better contrast */
   line-height: 1.8; /* Improve readability */
   margin-bottom: 20px; /* Space between paragraphs */
@@ -479,7 +479,7 @@ nav {
 
 @media (max-width: 480px) {
   .about-me-content p {
-    font-size: 1em; /* Adjust text size for smaller screens */
+    font-size: 0.9em; /* Adjust text size for smaller screens */
     text-align: left;
   }
 
@@ -711,7 +711,7 @@ nav {
 }
 
 .project-description {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1em;
   line-height: 1.6;
   color: #ccc;
