@@ -302,7 +302,7 @@ nav {
 }
 
 .border button {
-  color: #fff;
+  color: #000;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-size: 1.1rem;
@@ -696,7 +696,7 @@ nav {
 
 .project-image {
   width: 30%;
-  height: auto;
+  height: auto; 
   border-radius: 8px;
   margin-right: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -721,8 +721,8 @@ nav {
 
 .project-link {
   font-family: "Poppins", sans-serif;
-  font-size: 1.2em;
-  color: #fff;
+  font-size: 1em;
+  color: #000;
   text-decoration: none;
   background-color: rgb(24, 164, 219);
   padding: 10px 20px;
@@ -962,7 +962,7 @@ a {
   background-color: #111; /* Dark gray background for the box */
   color: white; /* Text color for contrast */
   width: 90%; /* Make the box responsive */
-  height: 850px;
+  height: 900px;
   max-width: 1200px; /* Limit the maximum width */
   padding: 20px;
   border-radius: 8px; /* Rounded corners */
@@ -1033,6 +1033,22 @@ header p {
   margin-bottom: 1rem;
   width: 25%;
   min-width: 61%;
+}
+
+.thinkflow-button {
+  background: linear-gradient(90deg, #1e90ff, #00bfff);
+  color: #000;
+  font-size: 1em;
+  font-weight: bold;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  transition: all 0.3s ease-in-out;
+}
+
+.thinkflow-button:hover {
+  opacity: 0.8;
 }
 
 #cgpa {
@@ -1598,7 +1614,7 @@ header p {
     #007bff,
     #00c6ff
   ); /* Gradient for dynamic color */
-  color: #fff;
+  color: #000;
   width: 260px; /* Slightly wider for better visual balance */
   height: 55px; /* Slightly taller for better padding */
   margin: 25px 0;
@@ -1709,9 +1725,10 @@ header p {
 }
 
 form .btn2 {
-  color: #fff;
+  color: #000;
   font-family: "Poppins", sans-serif;
   font-size: 1.2rem;
+  font-weight: bold;
   border-radius: 8px;
   background: linear-gradient(
     90deg,
