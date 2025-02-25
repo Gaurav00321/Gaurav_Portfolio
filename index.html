@@ -744,7 +744,17 @@
           </div>
 
           <div class="contact-right">
-            <form id="contact-form" name="submit-to-google-sheet">
+            <form
+              action="https://api.web3forms.com/submit"
+              method="post"
+              id="contact-form"
+              name="submit-to-google-sheet"
+            >
+              <input
+                type="hidden"
+                name="access_key"
+                value="6b0b8b24-6607-492a-b62a-e68ca575b6dd"
+              />
               <div class="form-group">
                 <input
                   id="name"
