@@ -6,6 +6,87 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
+// Function to check if an element is in viewport
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom >= 0
+  );
+}
+
+function handleScrollAnimations() {
+  // Helper function to apply animation
+  function applyAnimation(element, animation) {
+    if (!element) return;
+    if (isInViewport(element)) {
+      element.style.animation = `${animation} 1s ease-out forwards`;
+    } else {
+      element.style.animation = "none";
+      element.style.opacity = "0";
+    }
+  }
+
+  // Main section animation
+  applyAnimation(document.querySelector(".main"), "fadeInSlideUp");
+
+  // Background image animation
+  applyAnimation(document.querySelector(".bg"), "fadeInSlideRight");
+
+  // Intro section animation
+  applyAnimation(document.querySelector(".intro"), "fadeInSlideLeft");
+
+  // About Me section animation
+  applyAnimation(document.querySelector(".about-me"), "fadeInSlideUp");
+
+  // Skills section animation
+  applyAnimation(document.querySelector(".skills-section"), "fadeInSlideUp");
+
+  // GitHub Projects animation
+  applyAnimation(document.querySelector(".github-projects"), "fadeInSlideUp");
+
+  // Project Cards animation
+  applyAnimation(document.querySelector(".project-card"), "fadeInSlideRight");
+
+  // Self Study section animation
+  applyAnimation(
+    document.querySelector(".self-study-section"),
+    "slideInFromBottom"
+  );
+
+  // Concept Cards animation
+  applyAnimation(document.querySelector(".concept-card"), "slideInFromLeft");
+
+  // Timeline section animation
+  applyAnimation(document.querySelector(".timeline"), "fadeInSlideUp");
+
+  // Certifications section animation
+  applyAnimation(
+    document.querySelector(".certifications-section"),
+    "fadeInSlideUp"
+  );
+
+  // Contact section animations
+  const contactLeft = document.querySelector(".contact-left");
+  const contactRight = document.querySelector(".contact-right");
+
+  if (contactLeft && contactRight) {
+    if (isInViewport(contactLeft) && isInViewport(contactRight)) {
+      contactLeft.classList.add("show");
+      contactRight.classList.add("show");
+    } else {
+      contactLeft.classList.remove("show");
+      contactRight.classList.remove("show");
+    }
+  }
+}
+
+// Add scroll event listener
+window.addEventListener("scroll", handleScrollAnimations);
+
+// Initial check on page load
+handleScrollAnimations();
+
 var typed = new Typed("#element", {
   strings: [
     "I'm <span class='underlined'>a IMCA Student . . .</span>",
@@ -30,13 +111,30 @@ window.onload = function () {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  const timelineItems = document.querySelectorAll(".timeline-item");
+  const journeySection = document.querySelector(".journey");
 
-  window.addEventListener("scroll", () => {
-    timelineItems.forEach((item) => {
-      if (item.getBoundingClientRect().top < window.innerHeight * 0.75) {
-        item.classList.add("show");
+  function handleJourneyScroll() {
+    if (!journeySection) return;
+
+    const timelineItems = document.querySelectorAll(".timeline-item");
+
+    timelineItems.forEach((item, index) => {
+      const rect = item.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight * 0.75 && rect.bottom > 0;
+
+      if (isVisible) {
+        setTimeout(() => {
+          item.classList.add("show");
+        }, index * 300); // Staggered delay
+      } else {
+        item.classList.remove("show"); // Only reset when fully out of view
       }
     });
-  });
+  }
+
+  // Attach scroll event listener
+  window.addEventListener("scroll", handleJourneyScroll);
+
+  // Initial check in case the section is already in view
+  handleJourneyScroll();
 });

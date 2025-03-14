@@ -218,8 +218,62 @@ nav {
   justify-content: center;
   align-items: center;
   color: white;
-  width: 100%;
+  /* width: 100%; */
   height: 100vh;
+}
+
+/* Add animation keyframes */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add animation to main section */
+.main {
+  opacity: 0;
+  animation: fadeInSlideUp 1s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+/* Add animations to about section elements */
+.bg {
+  opacity: 0;
+  animation: fadeInSlideRight 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
+.intro {
+  opacity: 0;
+  animation: fadeInSlideLeft 1s ease-out forwards;
+  animation-delay: 0.9s;
 }
 
 .about {
@@ -414,6 +468,28 @@ nav {
 }
 
 /* About Me Section */
+/* About Me Animation */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-me {
+  opacity: 0;
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
+/* Only play animation when section is in viewport */
+.about-me.visible {
+  animation: slideInFromBottom 1s ease-out forwards;
+}
+
 .about-me {
   background: #000; /* Black background */
   color: #fff; /* White text */
@@ -498,6 +574,9 @@ nav {
 /* skill section */
 
 .skills-section {
+  opacity: 0;
+  animation: fadeInSlideUp 1s ease-out forwards;
+  animation-delay: 1.2s;
   padding: 50px 10%;
   text-align: center;
 }
@@ -620,6 +699,18 @@ nav {
 }
 
 /* GitHub Projects Section */
+/* GitHub Projects Animation */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .github-projects {
   background-color: #000; /* Black background */
   padding: 80px 20px;
@@ -627,6 +718,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  animation: fadeInSlideUp 1s ease-out forwards;
+  animation-delay: 0.3s;
 }
 
 .github-container {
@@ -663,6 +757,23 @@ nav {
   width: 100%;
 }
 
+@keyframes fadeInSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project-card {
+  opacity: 0;
+  animation: fadeInSlideRight 1s ease-out forwards;
+  animation-delay: 0.6s;
+}
+
 .project-card {
   display: flex;
   flex-direction: row;
@@ -696,7 +807,7 @@ nav {
 
 .project-image {
   width: 30%;
-  height: auto; 
+  height: auto;
   border-radius: 8px;
   margin-right: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -794,7 +905,42 @@ nav {
   }
 }
 
-/* Self-Study Section Concept Section */
+/* Self Study Section Animation */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.self-study-section {
+  opacity: 0;
+  animation: fadeInSlideUp 1s ease-out forwards;
+  animation-delay: 1.2s;
+}
+
+.concept-card {
+  opacity: 0;
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+/* Sequential animation delays for concept cards */
+.concept-card:nth-child(1) {
+  animation-delay: 1.4s;
+} /* Cassandra */
+.concept-card:nth-child(2) {
+  animation-delay: 1.6s;
+} /* Google Big Table */
+.concept-card:nth-child(3) {
+  animation-delay: 1.8s;
+} /* Dynamo DB */
+.concept-card:nth-child(4) {
+  animation-delay: 2s;
+} /* Google File System */
 
 h2,
 h3 {
@@ -806,8 +952,6 @@ a {
   text-decoration: none;
   color: inherit;
 }
-
-/* Self Study Section */
 
 .self-study-section {
   padding: 50px 10%;
@@ -992,9 +1136,25 @@ header p {
   padding: 20px 0;
 }
 
+@keyframes slideUpDot {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.timeline-item > * {
+  opacity: 0; /* Ensure animation starts from hidden */
+}
+
+/* Hide timeline items initially */
 .timeline-item {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(30px);
   transition: opacity 0.5s ease, transform 0.5s ease;
   display: flex;
   align-items: flex-start;
@@ -1002,32 +1162,42 @@ header p {
   position: relative;
 }
 
+/* Staggered appearance for timeline items */
 .timeline-item.show {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* Ensure text content inside timeline-item is always visible */
+.timeline-item .timeline-content,
+.timeline-item .timeline-date {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Timeline Date Styling */
 .timeline-date {
   font-weight: bold;
-  color: rgb(24, 164, 219); /* Blue color for the year */
+  color: rgb(24, 164, 219);
   width: 80px;
   text-align: center;
   margin-right: 20px;
   font-size: 1.2em;
 }
 
+/* Timeline Content Styling */
 .timeline-content {
   flex: 1;
 }
 
 .timeline-content h2 {
-  color: white; /* White for title */
+  color: white;
   font-size: 1.5em;
   margin: 0;
 }
 
 .timeline-content p {
-  color: #ccc; /* Light gray text */
+  color: #ccc;
   font-size: 1.1em;
   margin-top: 5px;
   margin-bottom: 1rem;
@@ -1061,41 +1231,39 @@ header p {
   font-weight: bold; /* Makes the CGPA label bold */
 }
 
+/* Timeline Vertical Line */
 .timeline::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 75%; /* Centered connector for better responsiveness */
-  width: 3px; /* Slightly thicker for better visibility */
+  left: 75%;
+  width: 3px;
   height: 100%;
-  background-color: rgba(
-    24,
-    164,
-    219,
-    0.6
-  ); /* Subtle semi-transparent blue for the connector line */
+  background-color: rgba(24, 164, 219, 0.6);
   transform: translateX(-50%);
-  z-index: 1; /* Ensures it stays behind other elements */
+  z-index: 1;
 }
 
-/* Timeline Item Circle */
+/* Timeline Circle Dots */
 .timeline-item::before {
   content: "";
   position: absolute;
   top: 15px;
-  left: 75%; /* Centered on the connector line */
-  width: 18px; /* Larger size for emphasis */
+  left: 75%;
+  width: 18px;
   height: 18px;
-  background: linear-gradient(
-    135deg,
-    #18a4db,
-    #0e6ba8
-  ); /* Gradient blue for a more polished look */
-  border: 2px solid #fff; /* White border for contrast */
-  border-radius: 50%; /* Circular shape */
+  background: linear-gradient(135deg, #18a4db, #0e6ba8);
+  border: 2px solid #fff;
+  border-radius: 50%;
   transform: translateX(-50%);
-  z-index: 2; /* Ensures it stays on top of the connector line */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  z-index: 2;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  opacity: 0; /* Initially hidden */
+}
+
+/* Staggered Animation for Each Circle */
+.timeline-item.show::before {
+  animation: slideUpDot 0.6s ease-out forwards;
 }
 
 /* Responsive Styles */
@@ -1234,6 +1402,16 @@ header p {
 }
 
 /* Certifications Section */
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .certifications-section {
   padding: 30px 0;
   background-color: #000; /* Dark background to match theme */
@@ -1482,6 +1660,9 @@ header p {
   max-width: 35%;
   padding: 20px;
   width: 100%;
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .contact-left header {
@@ -1650,6 +1831,9 @@ header p {
 
 .contact-right {
   width: 50%;
+  opacity: 0;
+  transform: translateX(100px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .contact-right form {
@@ -1892,4 +2076,39 @@ form .btn2:hover {
   .footer-policy {
     font-size: 0.8em; /* Smaller font size for policies */
   }
+}
+
+/* Contact Section Animations */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.contact-left.show {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.contact-right.show {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInFromRight 0.8s ease-out forwards;
 }
