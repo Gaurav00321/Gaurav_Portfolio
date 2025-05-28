@@ -87,22 +87,18 @@ window.addEventListener("scroll", handleScrollAnimations);
 // Initial check on page load
 handleScrollAnimations();
 
-// Typed.js initialization
+// Typed.js initialization with multiple rotating messages
 var typed = new Typed("#element", {
   strings: [
-    "<span style='font-family: Poppins, sans-serif;'>Founder of ThinkFlowGPT and Chief Scientist at amTop.</span>"
+    "<span style='font-family: Poppins, sans-serif;'>Founder & CEO at ThinkFlowGPT, revolutionizing workflow automation</span>",
+    "<span style='font-family: Poppins, sans-serif;'>Chief Scientist at amTop, building enterprise AI solutions</span>",
+    "<span style='font-family: Poppins, sans-serif;'>Expert in AI, ML, and Distributed Systems</span>"
   ],
-  backDelay: 2000, // 2 seconds delay before backspacing
-  loop: true,
-  cursorChar: "|", // Blinking cursor character
   typeSpeed: 60,
   backSpeed: 30,
+  backDelay: 2000,
   loop: true,
-  smartBackspace: true,
-  onStringTyped: (arrayPos, self) => {
-    self.cursor.style.fontSize = "30px"; // Match cursor size to font size
-  },
-  showCursor: true, // Show only the cursor, not blinking text
+  smartBackspace: true
 });
 
 window.onload = function () {
