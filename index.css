@@ -807,7 +807,7 @@ nav {
 
 .project-image {
   width: 30%;
-  height: auto;
+  height: 180px;
   border-radius: 8px;
   margin-right: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;

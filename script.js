@@ -87,16 +87,16 @@ window.addEventListener("scroll", handleScrollAnimations);
 // Initial check on page load
 handleScrollAnimations();
 
+// Typed.js initialization
 var typed = new Typed("#element", {
   strings: [
-    "I'm <span class='underlined'>a IMCA Student . . .</span>",
-    "I'm <span class='underlined'>a Java and C++ Software Developer.</span>",
+    "<span style='font-family: Poppins, sans-serif;'>Founder of ThinkFlowGPT and Chief Scientist at amTop.</span>"
   ],
   backDelay: 2000, // 2 seconds delay before backspacing
   loop: true,
   cursorChar: "|", // Blinking cursor character
-  typeSpeed: 90,
-  backspeed: 1,
+  typeSpeed: 60,
+  backSpeed: 30,
   loop: true,
   smartBackspace: true,
   onStringTyped: (arrayPos, self) => {
