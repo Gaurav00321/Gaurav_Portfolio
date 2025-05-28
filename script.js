@@ -90,7 +90,7 @@ handleScrollAnimations();
 // Typed.js initialization with multiple rotating messages
 var typed = new Typed("#element", {
   strings: [
-    "<span style='font-family: Poppins, sans-serif;'>Founder at ThinkFlowGPT, revolutionizing workflow automation.</span>",
+    "<span style='font-family: Poppins, sans-serif;'>Founder of ThinkFlowGPT, revolutionizing workflow automation.</span>",
   ],
   typeSpeed: 60,
   backSpeed: 30,
